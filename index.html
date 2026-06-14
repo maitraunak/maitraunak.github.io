@@ -3,252 +3,384 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Raunak Maitra — Economics Student</title>
+  <title>Raunak Maitra</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --ink: #1a1a1a;
-      --ink-muted: #555;
-      --ink-faint: #999;
-      --border: #e4e4e4;
-      --bg: #ffffff;
-      --bg-secondary: #f7f7f7;
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+    :root{
+      --bg:#0c0c0d;
+      --bg1:#111113;
+      --bg2:#161618;
+      --bg3:#1c1c1f;
+      --line:#222226;
+      --line2:#2c2c32;
+      --t1:#eae8e3;
+      --t2:#9a978f;
+      --t3:#5a5854;
+      --t4:#2e2d2a;
+      --gold:#b8954a;
+      --gold2:#7a6230;
+      --goldglow:rgba(184,149,74,.07);
     }
-    body {
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      color: var(--ink);
-      background: var(--bg);
-      min-height: 100vh;
-      -webkit-font-smoothing: antialiased;
+
+    html{scroll-behavior:smooth}
+
+    body{
+      font-family:'DM Sans',sans-serif;
+      background:var(--bg);
+      color:var(--t1);
+      min-height:100vh;
+      -webkit-font-smoothing:antialiased;
+      font-size:15px;
     }
-    .site { max-width: 640px; margin: 0 auto; padding: 0 2rem; }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 2.5rem 0;
-      border-bottom: 1px solid var(--border);
+
+    /* ─── LAYOUT ─── */
+    .page{max-width:680px;margin:0 auto;padding:0 2rem}
+
+    /* ─── HEADER ─── */
+    header{
+      display:flex;justify-content:space-between;align-items:center;
+      padding:2rem 0 1.75rem;
+      border-bottom:1px solid var(--line);
+      position:sticky;top:0;
+      background:rgba(12,12,13,.92);
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+      z-index:10;
     }
-    .site-id { font-size: 13px; font-weight: 500; letter-spacing: 0.04em; color: var(--ink); text-decoration: none; }
-    nav { display: flex; gap: 1.5rem; }
-    nav a {
-      font-size: 13px; color: var(--ink-muted); text-decoration: none;
-      cursor: pointer; transition: color 0.15s; background: none;
-      border: none; padding: 0; font-family: inherit;
+    .logo{text-decoration:none;display:flex;flex-direction:column;gap:.1rem}
+    .logo-n{font-family:'Lora',serif;font-size:.95rem;font-weight:600;color:var(--t1);letter-spacing:.01em}
+    .logo-s{font-size:10px;color:var(--t3);letter-spacing:.1em;text-transform:uppercase}
+    nav{display:flex;gap:.1rem;align-items:center}
+    .nb{
+      background:none;border:none;cursor:pointer;
+      font-family:'DM Sans',sans-serif;font-size:13px;
+      color:var(--t3);padding:.35rem .8rem;border-radius:99px;
+      transition:color .2s,background .2s;letter-spacing:.01em;
     }
-    nav a:hover { color: var(--ink); }
-    nav a.active { color: var(--ink); }
-    .intro { padding: 4rem 0 3.5rem; }
-    .intro-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 1.5rem; }
-    .intro-photo {
-      width: 56px; height: 56px; border-radius: 50%;
-      border: 1px solid var(--border); background: var(--bg-secondary);
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 1.75rem; overflow: hidden;
+    .nb:hover{color:var(--t1);background:var(--bg3)}
+    .nb.on{color:var(--gold);background:var(--goldglow);font-weight:500}
+    .na{font-size:13px;color:var(--t3);text-decoration:none;padding:.35rem .8rem;border-radius:99px;transition:color .2s,background .2s}
+    .na:hover{color:var(--t1);background:var(--bg3)}
+
+    /* ─── INTRO ─── */
+    .intro{padding:3.5rem 0 3rem;border-bottom:1px solid var(--line)}
+    .avatar{
+      width:46px;height:46px;border-radius:50%;
+      border:1px solid var(--gold2);
+      background:var(--goldglow);
+      display:flex;align-items:center;justify-content:center;
+      font-family:'Lora',serif;font-weight:600;font-size:.95rem;
+      color:var(--gold);margin-bottom:1.75rem;
+      letter-spacing:.03em;
     }
-    .intro-photo svg { width: 24px; height: 24px; stroke: var(--ink-faint); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
-    .intro h1 { font-family: 'EB Garamond', serif; font-size: 2rem; font-weight: 400; line-height: 1.25; color: var(--ink); margin-bottom: 1rem; }
-    .intro p { font-size: 14px; line-height: 1.85; color: var(--ink-muted); max-width: 520px; }
-    .intro p + p { margin-top: 0.85rem; }
-    .intro-links { display: flex; gap: 1.25rem; margin-top: 1.5rem; flex-wrap: wrap; }
-    .intro-links a {
-      font-size: 12px; color: var(--ink-faint); text-decoration: none;
-      letter-spacing: 0.03em; border-bottom: 1px solid var(--border);
-      padding-bottom: 1px; transition: color 0.15s, border-color 0.15s;
+    .intro-head{
+      font-family:'Lora',serif;
+      font-size:1.85rem;font-weight:400;
+      line-height:1.3;color:var(--t1);
+      margin-bottom:1.25rem;
     }
-    .intro-links a:hover { color: var(--ink); border-color: var(--ink); }
-    .panel { display: none; padding-bottom: 4rem; }
-    .panel.active { display: block; }
-    .section-rule { display: flex; align-items: center; gap: 1rem; padding: 2.5rem 0 2rem; }
-    .section-rule span { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); white-space: nowrap; }
-    .section-rule::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-    .acad-entry { display: grid; grid-template-columns: 110px 1fr; gap: 0 1.5rem; padding: 1.25rem 0; border-bottom: 1px solid var(--border); }
-    .acad-entry:last-of-type { border-bottom: none; }
-    .acad-year { font-size: 12px; color: var(--ink-faint); padding-top: 2px; line-height: 1.5; }
-    .acad-title { font-family: 'EB Garamond', serif; font-size: 1rem; font-weight: 500; color: var(--ink); margin-bottom: 0.3rem; line-height: 1.3; }
-    .acad-sub { font-size: 13px; color: var(--ink-muted); line-height: 1.6; }
-    .acad-tag { display: inline-block; margin-top: 0.6rem; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-faint); border: 1px solid var(--border); padding: 2px 8px; border-radius: 3px; }
-    .pub-entry { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
-    .pub-entry:last-of-type { border-bottom: none; }
-    .pub-title { font-family: 'EB Garamond', serif; font-size: 1.05rem; font-style: italic; color: var(--ink); margin-bottom: 0.4rem; line-height: 1.4; }
-    .pub-title a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--border); transition: border-color 0.15s; }
-    .pub-title a:hover { border-color: var(--ink); }
-    .pub-meta { font-size: 12px; color: var(--ink-faint); line-height: 1.7; }
-    .pub-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.65; margin-top: 0.5rem; }
-    .pub-status { display: inline-block; margin-top: 0.6rem; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-faint); border: 1px solid var(--border); padding: 2px 8px; border-radius: 3px; }
-    .skills-grid { display: grid; grid-template-columns: 110px 1fr; gap: 0 1.5rem; padding: 1rem 0; border-bottom: 1px solid var(--border); }
-    .skills-grid:last-of-type { border-bottom: none; }
-    .skills-label { font-size: 12px; color: var(--ink-faint); padding-top: 2px; }
-    .skills-val { font-size: 13px; color: var(--ink-muted); line-height: 1.7; }
-    .empty-state { padding: 3rem 0; text-align: center; }
-    .empty-state p { font-family: 'EB Garamond', serif; font-size: 1.1rem; font-style: italic; color: var(--ink-faint); }
-    footer { border-top: 1px solid var(--border); padding: 2rem 0; font-size: 12px; color: var(--ink-faint); display: flex; justify-content: space-between; }
-    @media (max-width: 520px) {
-      .site { padding: 0 1.25rem; }
-      .acad-entry, .skills-grid { grid-template-columns: 1fr; gap: 0.3rem 0; }
-      .intro h1 { font-size: 1.6rem; }
-      nav { gap: 1rem; }
+    .intro-head em{font-style:italic;color:var(--t2)}
+    .intro-body p{font-size:14.5px;line-height:1.9;color:var(--t2);max-width:520px}
+    .intro-body p+p{margin-top:.85rem}
+    .intro-links{
+      display:flex;flex-wrap:wrap;gap:1.25rem;
+      margin-top:1.85rem;padding-top:1.5rem;
+      border-top:1px solid var(--line);
     }
+    .il{font-size:12px;font-family:'DM Mono',monospace;color:var(--t3);text-decoration:none;letter-spacing:.02em;transition:color .2s}
+    .il:hover{color:var(--gold)}
+    .il-s{font-size:12px;font-family:'DM Mono',monospace;color:var(--t3);letter-spacing:.02em}
+
+    /* ─── PANELS ─── */
+    .panel{display:none;padding-bottom:5rem}
+    .panel.on{display:block}
+
+    /* ─── SECTION RULE ─── */
+    .sr{display:flex;align-items:center;gap:1rem;padding:2.5rem 0 1.5rem}
+    .sr-lbl{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--t3);white-space:nowrap}
+    .sr-line{flex:1;height:1px;background:var(--line)}
+
+    /* ─── ENTRY ─── */
+    .entry{
+      display:grid;grid-template-columns:92px 1fr;gap:0 1.5rem;
+      padding:1.35rem 0;border-bottom:1px solid var(--line);
+    }
+    .entry:last-of-type{border-bottom:none}
+    .ey{font-family:'DM Mono',monospace;font-size:11px;color:var(--t3);padding-top:3px;line-height:1.5}
+    .et{font-family:'Lora',serif;font-size:1rem;font-weight:500;color:var(--t1);line-height:1.35;margin-bottom:.28rem}
+    .es{font-size:13px;color:var(--t2);line-height:1.65}
+    .ed{font-size:13px;color:var(--t3);line-height:1.7;margin-top:.4rem}
+    .tag{
+      display:inline-block;margin-top:.55rem;
+      font-size:10px;letter-spacing:.07em;text-transform:uppercase;
+      color:var(--gold2);border:1px solid var(--gold2);
+      padding:2px 8px;border-radius:99px;background:var(--goldglow);
+    }
+    .tg{
+      display:inline-block;margin-top:.55rem;
+      font-size:10px;letter-spacing:.07em;text-transform:uppercase;
+      color:var(--t3);border:1px solid var(--line2);
+      padding:2px 8px;border-radius:99px;
+    }
+
+    /* ─── PUBLICATIONS (accordion) ─── */
+    .pub-item{border-bottom:1px solid var(--line)}
+    .pub-item:last-of-type{border-bottom:none}
+    .pub-toggle{
+      width:100%;background:none;border:none;cursor:pointer;
+      display:flex;align-items:flex-start;justify-content:space-between;
+      gap:1rem;padding:1.4rem 0;text-align:left;
+      transition:opacity .15s;
+    }
+    .pub-toggle:hover .pub-t{color:var(--t1)}
+    .pub-t{
+      font-family:'Lora',serif;font-style:italic;
+      font-size:1.02rem;color:var(--t2);line-height:1.45;
+      transition:color .2s;flex:1;
+    }
+    .pub-t.linked{color:var(--t1)}
+    .pub-arrow{
+      font-size:16px;color:var(--t3);flex-shrink:0;
+      margin-top:2px;transition:transform .25s;
+      font-style:normal;font-family:'DM Sans',sans-serif;
+    }
+    .pub-arrow.open{transform:rotate(45deg)}
+    .pub-body{
+      overflow:hidden;max-height:0;
+      transition:max-height .35s cubic-bezier(.4,0,.2,1);
+    }
+    .pub-body.open{max-height:300px}
+    .pub-inner{padding:0 0 1.4rem}
+    .pub-meta{font-size:12px;color:var(--t3);line-height:1.75;margin-bottom:.5rem}
+    .pub-desc{font-size:13.5px;color:var(--t2);line-height:1.7}
+    .pub-link{
+      display:inline-flex;align-items:center;gap:.35rem;
+      font-size:12px;color:var(--gold);text-decoration:none;
+      margin-top:.65rem;letter-spacing:.02em;
+      border-bottom:1px solid var(--gold2);padding-bottom:1px;
+      transition:color .15s;
+    }
+    .pub-link:hover{color:var(--t1)}
+
+    /* ─── JOURNAL ─── */
+    .j-hero{padding:3.5rem 0 2.75rem;border-bottom:1px solid var(--line)}
+    .j-eye{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);margin-bottom:1rem}
+    .j-h{font-family:'Lora',serif;font-size:1.55rem;font-weight:400;line-height:1.3;color:var(--t1);margin-bottom:1.1rem}
+    .j-h em{font-style:italic;color:var(--t2)}
+    .j-p{font-size:14.5px;color:var(--t2);line-height:1.95;max-width:520px}
+    .j-p+.j-p{margin-top:.85rem}
+
+    .j-soon{
+      margin-top:2.75rem;
+      background:var(--bg2);
+      border:1px solid var(--line2);
+      border-radius:10px;
+      padding:2rem 1.85rem;
+    }
+    .j-soon-lbl{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold2);margin-bottom:.65rem}
+    .j-pull{
+      font-family:'Lora',serif;font-style:italic;
+      font-size:1.05rem;color:var(--t2);line-height:1.75;
+      border-left:1.5px solid var(--gold2);padding-left:1.1rem;
+      margin:0 0 .9rem;
+    }
+    .j-note{font-size:13px;color:var(--t3);line-height:1.7}
+
+    /* ─── FOOTER ─── */
+    footer{border-top:1px solid var(--line);padding:1.75rem 0;display:flex;justify-content:space-between;align-items:center}
+    footer span{font-size:12px;color:var(--t3)}
+    .f-it{font-family:'Lora',serif;font-style:italic;font-size:12px;color:var(--t4)}
+
+    /* ─── RESPONSIVE ─── */
+    @media(max-width:540px){
+      .page{padding:0 1.25rem}
+      .entry{grid-template-columns:1fr;gap:.35rem}
+      .intro-head{font-size:1.5rem}
+      nav{gap:0}
+    }
+    @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
   </style>
 </head>
 <body>
+<div class="page">
 
-<div class="site">
-
+  <!-- ── HEADER ── -->
   <header>
-    <a class="site-id" href="#">Raunak Maitra</a>
+    <a class="logo" href="#">
+      <span class="logo-n">Raunak Maitra</span>
+
+    </a>
     <nav>
-      <a class="active" onclick="show('acad', this)">Academics</a>
-      <a onclick="show('blog', this)">Writing</a>
-      <a href="mailto:maitra.raunak1810@gmail.com">Contact</a>
+      <button class="nb on" onclick="show('acad',this)">Research</button>
+      <button class="nb"    onclick="show('journal',this)">Journal</button>
+      <a class="na" href="mailto:maitra.raunak1810@gmail.com">Contact</a>
     </nav>
   </header>
 
+  <!-- ── INTRO ── -->
   <div class="intro">
-    <p class="intro-label">About</p>
-    <div class="intro-photo">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-        <circle cx="12" cy="7" r="4"/>
-      </svg>
+    <div class="avatar">RM</div>
+    <h1 class="intro-head">Exploring Economics,<br><em>Society, and Human Behaviour.</em></h1>
+    <div class="intro-body">
+      <p>I studied Economics (Honours) at Presidency University, Kolkata, and am currently pursuing my MA in Applied Economics at the Centre for Development Studies, JNU, Trivandrum.</p>
+      <p>I started out as a PCMB student, but a growing curiosity about how societies function gradually drew me towards economics. Since then, I have been fascinated by understanding how policy, technology, and institutions influence economic and social outcomes. My current interests include exploring the impact of digitalisation on firm performance and the role of education in intimate partner violence. I am also interested in mental health and well-being, behavioural norms, crime against sexually marginalised communities, and geospatial econometrics.</p>
+      <p>I come from a background of poverty and resource constraint — not as a footnote, but as something that has fundamentally shaped how I think about inequality, access, and why these questions matter. I know what it feels like to study without a safety net. That experience lives in my research. Currently seeking suitable positions to strengthen my research foundation before starting my PhD.</p>
     </div>
-    <h1>Student of economics.<br>Still learning, always curious.</h1>
-    <p>I studied Economics (Honours) at Presidency University, Kolkata, and am currently pursuing my MA in Applied Economics at the Centre for Development Studies, JNU, Trivandrum.</p>
-    <p>I started out as a PCMB student, but a growing curiosity about how societies function gradually drew me towards economics. Since then, I have been fascinated by understanding how policy, technology, and institutions influence economic and social outcomes. My current interests include exploring the impact of digitalisation on firm performance and the role of education in intimate partner violence. I am also interested in mental health and well-being, behavioural norms, crime against sexually marginalised communities, and geospatial econometrics. Currently seeking suitable positions to strengthen my research foundation before starting my PhD.</p>
     <div class="intro-links">
-      <a href="mailto:maitra.raunak1810@gmail.com">maitra.raunak1810@gmail.com</a>
-      <a href="tel:+917407155125">+91 74071 55125</a>
-      <span style="font-size:12px;color:var(--ink-faint);">Trivandrum, Kerala</span>
+      <a class="il" href="mailto:maitra.raunak1810@gmail.com">maitra.raunak1810@gmail.com</a>
+      <a class="il" href="tel:+917407155125">+91 74071 55125</a>
+      <span class="il-s">Trivandrum, Kerala</span>
     </div>
   </div>
 
-  <div id="panel-acad" class="panel active">
+  <!-- ══════════ PANEL: RESEARCH ══════════ -->
+  <div id="panel-acad" class="panel on">
 
-    <div class="section-rule"><span>Education</span></div>
+    <div class="sr"><span class="sr-lbl">Education</span><div class="sr-line"></div></div>
 
-    <div class="acad-entry">
-      <div class="acad-year">2024 – 2026</div>
+    <div class="entry">
+      <div class="ey">2024 – 2026</div>
       <div>
-        <p class="acad-title">MA in Applied Economics</p>
-        <p class="acad-sub">Centre for Development Studies, Jawaharlal Nehru University · Trivandrum, Kerala</p>
-        <p class="acad-sub" style="margin-top:0.3rem;">Grade: 66.60% · 3rd Rank, 2nd Semester · Ongoing</p>
-        <span class="acad-tag">Postgraduate</span>
+        <p class="et">MA in Applied Economics</p>
+        <p class="es">Centre for Development Studies, JNU · Trivandrum</p>
+        <p class="ed">Ongoing · 3rd Rank, 2nd Semester</p>
+        <span class="tag">Postgraduate</span>
       </div>
     </div>
 
-    <div class="acad-entry">
-      <div class="acad-year">2020 – 2023</div>
+    <div class="entry">
+      <div class="ey">2020 – 2023</div>
       <div>
-        <p class="acad-title">BSc (Honours) in Economics</p>
-        <p class="acad-sub">Presidency University · Kolkata, West Bengal</p>
-        <p class="acad-sub" style="margin-top:0.3rem;">Grade: 70.40%</p>
-        <span class="acad-tag">Undergraduate</span>
+        <p class="et">BSc (Honours) in Economics</p>
+        <p class="es">Presidency University · Kolkata, West Bengal</p>
+        <span class="tag">Undergraduate</span>
       </div>
     </div>
 
-    <div class="section-rule"><span>Research & experience</span></div>
+    <div class="sr"><span class="sr-lbl">Research & Experience</span><div class="sr-line"></div></div>
 
-    <div class="acad-entry">
-      <div class="acad-year">May – Jul 2025</div>
+    <div class="entry">
+      <div class="ey">May – Jul 2025</div>
       <div>
-        <p class="acad-title">Summer Research Fellow</p>
-        <p class="acad-sub">IIT Madras, Dept. of Humanities and Social Sciences · Chennai</p>
-        <span class="acad-tag">Internship</span>
+        <p class="et">Summer Research Fellow</p>
+        <p class="es">IIT Madras, Dept. of Humanities and Social Sciences · Chennai</p>
+        <span class="tag">Internship</span>
       </div>
     </div>
 
-    <div class="acad-entry">
-      <div class="acad-year">2025 – Present</div>
+    <div class="entry">
+      <div class="ey">2025</div>
       <div>
-        <p class="acad-title">Research Assistant — Macro-Financial Impact of Dissent in Central Bank Communication</p>
-        <p class="acad-sub">With Rounak Shil et al. · Built FAVAR databases, implemented NLP pipeline combining Dynamic Topic Modeling and FinBERT classification to extract dissent signals from RBI MPC meeting minutes. Developed composite Economic Situation Index using PCA and Factor Analysis.</p>
-        <span class="acad-tag">Research Assistant</span>
+        <p class="et">Project Evaluation Researcher</p>
+        <p class="es">iLAB NGO · Calicut, Kerala</p>
+        <p class="ed">Led evaluation of a community-based educational intervention for children from coastal fishing communities. Designed qualitative research methodology with 20+ stakeholder interviews. Mapped the programme's Theory of Change and delivered policy recommendations.</p>
+        <span class="tag">NGO Research</span>
       </div>
     </div>
 
-    <div class="acad-entry">
-      <div class="acad-year">2025</div>
-      <div>
-        <p class="acad-title">Project Evaluation Researcher — Coastal Education Enhancement Mission</p>
-        <p class="acad-sub">iLAB NGO · Calicut, Kerala · Led evaluation of community-based educational intervention for children from coastal fishing communities. Designed qualitative research methodology with 20+ stakeholder interviews. Mapped program Theory of Change and delivered policy recommendations.</p>
-        <span class="acad-tag">NGO Research</span>
+    <!-- ── Publications ── -->
+    <div class="sr"><span class="sr-lbl">Publications</span><div class="sr-line"></div></div>
+
+    <div class="pub-item">
+      <button class="pub-toggle" onclick="togglePub(this)">
+        <span class="pub-t linked">What does NFHS-6 reveal about the use of period products in India?</span>
+        <span class="pub-arrow">+</span>
+      </button>
+      <div class="pub-body">
+        <div class="pub-inner">
+          <p class="pub-meta">Raunak Maitra & Prof. Karan Babbar (XLRI Jamshedpur) · The Hindu · 2026</p>
+          <p class="pub-desc">Analyses findings from NFHS-6 on menstrual hygiene and period product usage patterns across India.</p>
+          <a class="pub-link" href="https://www.thehindu.com/sci-tech/health/what-does-nfhs-6-reveal-about-the-use-of-period-products-in-india/article71079459.ece" target="_blank">Read in The Hindu ↗</a>
+          <br><span class="tg" style="margin-top:.75rem">Published</span>
+        </div>
       </div>
     </div>
 
-    <div class="section-rule"><span>Publications & working papers</span></div>
+    <!-- ── Working Papers ── -->
+    <div class="sr"><span class="sr-lbl">Working Papers</span><div class="sr-line"></div></div>
 
-    <div class="pub-entry">
-      <p class="pub-title"><a href="https://www.thehindu.com/sci-tech/health/what-does-nfhs-6-reveal-about-the-use-of-period-products-in-india/article71079459.ece" target="_blank">What does NFHS-6 reveal about the use of period products in India?</a></p>
-      <p class="pub-meta">Raunak Maitra & Prof. Karan Babbar (XLRI Jamshedpur) · The Hindu · 2026</p>
-      <p class="pub-desc">Analyses findings from NFHS-6 on menstrual hygiene and period product usage patterns across India.</p>
-      <span class="pub-status">Published — The Hindu</span>
-    </div>
-
-    <div class="pub-entry">
-      <p class="pub-title">Intimate Partner Sexual Violence in India: The Role of Education</p>
-      <p class="pub-meta">Raunak Maitra & Prof. Karan Babbar (XLRI Jamshedpur) · 2025 – Present</p>
-      <p class="pub-desc">Examines how women's education levels relate to four types of intimate partner violence using NFHS-5 data. Uses nested logistic regression, bootstrap methods, and Fairlie decomposition across India's 36 state clusters.</p>
-      <span class="pub-status">Working Paper</span>
-    </div>
-
-    <div class="pub-entry">
-      <p class="pub-title">Digitalisation Effects on Firms' Outcomes</p>
-      <p class="pub-meta">Raunak Maitra & Prof. Sandeep Kumar Kujur (IIT Madras) · 2025 – Present</p>
-      <p class="pub-desc">Uses pooled firm-level data from World Bank Enterprise Surveys across 36 countries. Applies 2SLS and IV probit to address endogeneity, finding that digitalisation raises labour productivity but has no significant effect on total employment.</p>
-      <span class="pub-status">Working Paper</span>
+    <div class="pub-item">
+      <button class="pub-toggle" onclick="togglePub(this)">
+        <span class="pub-t">Intimate Partner Sexual Violence in India: The Role of Education</span>
+        <span class="pub-arrow">+</span>
+      </button>
+      <div class="pub-body">
+        <div class="pub-inner">
+          <p class="pub-meta">Raunak Maitra & Prof. Karan Babbar (XLRI Jamshedpur) · 2025 – Present</p>
+          <p class="pub-desc">Examines how women's education relates to four types of intimate partner violence using NFHS-5 data. Uses nested logistic regression, bootstrap methods, and Fairlie decomposition across India's 36 state clusters.</p>
+          <span class="tg" style="margin-top:.75rem;display:inline-block">Working Paper</span>
+        </div>
+      </div>
     </div>
 
-    <div class="section-rule"><span>Skills & qualifications</span></div>
-
-    <div class="skills-grid">
-      <div class="skills-label">Software</div>
-      <div class="skills-val">Stata, Python, R, Excel</div>
-    </div>
-    <div class="skills-grid">
-      <div class="skills-label">Methods</div>
-      <div class="skills-val">Causal inference, text analysis, NLP, regression, IV, PCA, factor analysis, decomposition methods</div>
-    </div>
-    <div class="skills-grid">
-      <div class="skills-label">Languages</div>
-      <div class="skills-val">Bengali (native), Hindi (fluent), English (fluent)</div>
-    </div>
-    <div class="skills-grid">
-      <div class="skills-label">Examinations</div>
-      <div class="skills-val">GATE Economics 2024 & 2026 (XH-C1) — Qualified both</div>
-    </div>
-    <div class="skills-grid">
-      <div class="skills-label">Service</div>
-      <div class="skills-val">Student Coordinator, MA Placement Cell, CDS · CDS Podcast Committee</div>
+    <div class="pub-item">
+      <button class="pub-toggle" onclick="togglePub(this)">
+        <span class="pub-t">Digitalisation Effects on Firms' Outcomes</span>
+        <span class="pub-arrow">+</span>
+      </button>
+      <div class="pub-body">
+        <div class="pub-inner">
+          <p class="pub-meta">Raunak Maitra & Prof. Sandeep Kumar Kujur (IIT Madras) · 2025 – Present</p>
+          <p class="pub-desc">Uses pooled firm-level data from World Bank Enterprise Surveys across 36 countries. Applies 2SLS and IV probit to address endogeneity — finding digitalisation raises labour productivity but has no significant effect on total employment.</p>
+          <span class="tg" style="margin-top:.75rem;display:inline-block">Working Paper</span>
+        </div>
+      </div>
     </div>
 
   </div>
 
-  <div id="panel-blog" class="panel">
-    <div class="section-rule"><span>Writing</span></div>
-    <div class="empty-state">
-      <p>Essays and field notes coming soon.</p>
+  <!-- ══════════ PANEL: JOURNAL ══════════ -->
+  <div id="panel-journal" class="panel">
+
+    <div class="j-hero">
+      <p class="j-eye">Personal Journal</p>
+      <h2 class="j-h">From an unknown village<br>to <em>Presi</em> to JNU — and still going.</h2>
+      <p class="j-p">These are notes I write to myself. About the distance between where I come from and where I am now. About the things nobody tells you when you're the first in your family to go this far. About grief, money, ambition, loneliness — and occasionally, something that feels like clarity.</p>
+      <p class="j-p">I grew up in Baharampur, Murshidabad — a small town in West Bengal where getting into Presidency University already felt like an unlikely thing. Getting to JNU after that felt even more so. The path here was not straight, and it was not easy. There were years of real financial difficulty — the kind where you count what things cost before you decide whether to show up. There was grief I carried quietly, alongside coursework and ambitions that had no obvious precedent in my immediate world.</p>
+      <p class="j-p">I am writing this journal because I needed something like it when I was starting out, and it didn't exist. Not about economics — about what it actually feels like to come from very little and try to build something, one semester at a time. If you are from a similar place, moving through similar terrain, I hope something here is useful to you. You are not alone in this.</p>
     </div>
+
+    <div class="j-soon">
+      <p class="j-soon-lbl">Coming soon</p>
+      <div class="j-pull">"I write when something settles enough to put into words. That takes time."</div>
+      <p class="j-note">Entries are on their way. If the introduction above already resonates with you — especially if you're from a similar place, moving through similar terrain — feel free to reach out. You're not alone in this.</p>
+    </div>
+
   </div>
 
   <footer>
-    <span>Raunak Maitra</span>
-    <span>Trivandrum, Kerala · 2026</span>
+    <span>Raunak Maitra · 2026</span>
+    <span class="f-it">Trivandrum, Kerala</span>
   </footer>
 
 </div>
 
 <script>
-  function show(id, el) {
-    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-    document.getElementById('panel-' + id).classList.add('active');
-    el.classList.add('active');
+  function show(id, btn) {
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('on'));
+    document.querySelectorAll('.nb').forEach(b => b.classList.remove('on'));
+    document.getElementById('panel-' + id).classList.add('on');
+    btn.classList.add('on');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function togglePub(btn) {
+    const body = btn.nextElementSibling;
+    const arrow = btn.querySelector('.pub-arrow');
+    const isOpen = body.classList.contains('open');
+    // close all
+    document.querySelectorAll('.pub-body').forEach(b => b.classList.remove('open'));
+    document.querySelectorAll('.pub-arrow').forEach(a => a.classList.remove('open'));
+    // open clicked if it was closed
+    if (!isOpen) {
+      body.classList.add('open');
+      arrow.classList.add('open');
+    }
   }
 </script>
-
 </body>
 </html>
