@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Maitraunak — Academics & Writing</title>
+  <title>Raunak Maitra — Economics Student</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
       --ink: #1a1a1a;
       --ink-muted: #555;
@@ -18,7 +17,6 @@
       --bg: #ffffff;
       --bg-secondary: #f7f7f7;
     }
-
     body {
       font-family: 'Inter', sans-serif;
       font-size: 14px;
@@ -27,14 +25,7 @@
       min-height: 100vh;
       -webkit-font-smoothing: antialiased;
     }
-
-    .site {
-      max-width: 640px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    /* NAV */
+    .site { max-width: 640px; margin: 0 auto; padding: 0 2rem; }
     header {
       display: flex;
       justify-content: space-between;
@@ -42,230 +33,65 @@
       padding: 2.5rem 0;
       border-bottom: 1px solid var(--border);
     }
-    .site-id {
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      color: var(--ink);
-      text-decoration: none;
-    }
+    .site-id { font-size: 13px; font-weight: 500; letter-spacing: 0.04em; color: var(--ink); text-decoration: none; }
     nav { display: flex; gap: 1.5rem; }
     nav a {
-      font-size: 13px;
-      color: var(--ink-muted);
-      text-decoration: none;
-      cursor: pointer;
-      transition: color 0.15s;
-      background: none;
-      border: none;
-      padding: 0;
-      font-family: inherit;
+      font-size: 13px; color: var(--ink-muted); text-decoration: none;
+      cursor: pointer; transition: color 0.15s; background: none;
+      border: none; padding: 0; font-family: inherit;
     }
     nav a:hover { color: var(--ink); }
     nav a.active { color: var(--ink); }
-
-    /* INTRO */
     .intro { padding: 4rem 0 3.5rem; }
-    .intro-label {
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--ink-faint);
-      margin-bottom: 1.5rem;
-    }
+    .intro-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 1.5rem; }
     .intro-photo {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      border: 1px solid var(--border);
-      background: var(--bg-secondary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.75rem;
-      overflow: hidden;
+      width: 56px; height: 56px; border-radius: 50%;
+      border: 1px solid var(--border); background: var(--bg-secondary);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.75rem; overflow: hidden;
     }
-    .intro-photo svg {
-      width: 24px;
-      height: 24px;
-      stroke: var(--ink-faint);
-      fill: none;
-      stroke-width: 1.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+    .intro-photo svg { width: 24px; height: 24px; stroke: var(--ink-faint); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .intro h1 { font-family: 'EB Garamond', serif; font-size: 2rem; font-weight: 400; line-height: 1.25; color: var(--ink); margin-bottom: 1rem; }
+    .intro p { font-size: 14px; line-height: 1.85; color: var(--ink-muted); max-width: 520px; }
+    .intro p + p { margin-top: 0.85rem; }
+    .intro-links { display: flex; gap: 1.25rem; margin-top: 1.5rem; flex-wrap: wrap; }
+    .intro-links a {
+      font-size: 12px; color: var(--ink-faint); text-decoration: none;
+      letter-spacing: 0.03em; border-bottom: 1px solid var(--border);
+      padding-bottom: 1px; transition: color 0.15s, border-color 0.15s;
     }
-    .intro h1 {
-      font-family: 'EB Garamond', serif;
-      font-size: 2rem;
-      font-weight: 400;
-      line-height: 1.25;
-      color: var(--ink);
-      margin-bottom: 1rem;
-    }
-    .intro p {
-      font-size: 14px;
-      line-height: 1.75;
-      color: var(--ink-muted);
-      max-width: 420px;
-    }
-
-    /* PANELS */
+    .intro-links a:hover { color: var(--ink); border-color: var(--ink); }
     .panel { display: none; padding-bottom: 4rem; }
     .panel.active { display: block; }
-
-    /* SECTION RULE */
-    .section-rule {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 2.5rem 0 2rem;
-    }
-    .section-rule span {
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--ink-faint);
-      white-space: nowrap;
-    }
-    .section-rule::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-
-    /* ACADEMIC ENTRIES */
-    .acad-entry {
-      display: grid;
-      grid-template-columns: 100px 1fr;
-      gap: 0 1.5rem;
-      padding: 1.25rem 0;
-      border-bottom: 1px solid var(--border);
-    }
+    .section-rule { display: flex; align-items: center; gap: 1rem; padding: 2.5rem 0 2rem; }
+    .section-rule span { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); white-space: nowrap; }
+    .section-rule::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .acad-entry { display: grid; grid-template-columns: 110px 1fr; gap: 0 1.5rem; padding: 1.25rem 0; border-bottom: 1px solid var(--border); }
     .acad-entry:last-of-type { border-bottom: none; }
-    .acad-year {
-      font-size: 12px;
-      color: var(--ink-faint);
-      padding-top: 2px;
-      line-height: 1.5;
-    }
-    .acad-title {
-      font-family: 'EB Garamond', serif;
-      font-size: 1rem;
-      font-weight: 500;
-      color: var(--ink);
-      margin-bottom: 0.3rem;
-      line-height: 1.3;
-    }
-    .acad-sub {
-      font-size: 13px;
-      color: var(--ink-muted);
-      line-height: 1.6;
-    }
-    .acad-tag {
-      display: inline-block;
-      margin-top: 0.6rem;
-      font-size: 11px;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--ink-faint);
-      border: 1px solid var(--border);
-      padding: 2px 8px;
-      border-radius: 3px;
-    }
-
-    /* PUBLICATIONS */
-    .pub-entry {
-      padding: 1.5rem 0;
-      border-bottom: 1px solid var(--border);
-    }
+    .acad-year { font-size: 12px; color: var(--ink-faint); padding-top: 2px; line-height: 1.5; }
+    .acad-title { font-family: 'EB Garamond', serif; font-size: 1rem; font-weight: 500; color: var(--ink); margin-bottom: 0.3rem; line-height: 1.3; }
+    .acad-sub { font-size: 13px; color: var(--ink-muted); line-height: 1.6; }
+    .acad-tag { display: inline-block; margin-top: 0.6rem; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-faint); border: 1px solid var(--border); padding: 2px 8px; border-radius: 3px; }
+    .pub-entry { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
     .pub-entry:last-of-type { border-bottom: none; }
-    .pub-title {
-      font-family: 'EB Garamond', serif;
-      font-size: 1.05rem;
-      font-style: italic;
-      color: var(--ink);
-      margin-bottom: 0.4rem;
-      line-height: 1.4;
-    }
-    .pub-meta {
-      font-size: 12px;
-      color: var(--ink-faint);
-      line-height: 1.7;
-    }
-    .pub-status {
-      display: inline-block;
-      margin-top: 0.5rem;
-      font-size: 11px;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--ink-faint);
-      border: 1px solid var(--border);
-      padding: 2px 8px;
-      border-radius: 3px;
-    }
-
-    /* BLOG ENTRIES */
-    .blog-entry {
-      display: grid;
-      grid-template-columns: 100px 1fr;
-      gap: 0 1.5rem;
-      padding: 1.25rem 0;
-      border-bottom: 1px solid var(--border);
-      cursor: pointer;
-      text-decoration: none;
-      color: inherit;
-    }
-    .blog-entry:last-of-type { border-bottom: none; }
-    .blog-entry:hover .blog-title {
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-    .blog-date {
-      font-size: 12px;
-      color: var(--ink-faint);
-      padding-top: 2px;
-    }
-    .blog-title {
-      font-family: 'EB Garamond', serif;
-      font-size: 1rem;
-      font-weight: 500;
-      color: var(--ink);
-      margin-bottom: 0.3rem;
-      line-height: 1.35;
-    }
-    .blog-excerpt {
-      font-size: 13px;
-      color: var(--ink-muted);
-      line-height: 1.6;
-    }
-    .blog-tag-pill {
-      display: inline-block;
-      margin-top: 0.5rem;
-      font-size: 11px;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--ink-faint);
-    }
-
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem 0;
-      font-size: 12px;
-      color: var(--ink-faint);
-      display: flex;
-      justify-content: space-between;
-    }
-
-    /* RESPONSIVE */
+    .pub-title { font-family: 'EB Garamond', serif; font-size: 1.05rem; font-style: italic; color: var(--ink); margin-bottom: 0.4rem; line-height: 1.4; }
+    .pub-title a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--border); transition: border-color 0.15s; }
+    .pub-title a:hover { border-color: var(--ink); }
+    .pub-meta { font-size: 12px; color: var(--ink-faint); line-height: 1.7; }
+    .pub-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.65; margin-top: 0.5rem; }
+    .pub-status { display: inline-block; margin-top: 0.6rem; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-faint); border: 1px solid var(--border); padding: 2px 8px; border-radius: 3px; }
+    .skills-grid { display: grid; grid-template-columns: 110px 1fr; gap: 0 1.5rem; padding: 1rem 0; border-bottom: 1px solid var(--border); }
+    .skills-grid:last-of-type { border-bottom: none; }
+    .skills-label { font-size: 12px; color: var(--ink-faint); padding-top: 2px; }
+    .skills-val { font-size: 13px; color: var(--ink-muted); line-height: 1.7; }
+    .empty-state { padding: 3rem 0; text-align: center; }
+    .empty-state p { font-family: 'EB Garamond', serif; font-size: 1.1rem; font-style: italic; color: var(--ink-faint); }
+    footer { border-top: 1px solid var(--border); padding: 2rem 0; font-size: 12px; color: var(--ink-faint); display: flex; justify-content: space-between; }
     @media (max-width: 520px) {
       .site { padding: 0 1.25rem; }
-      .acad-entry, .blog-entry {
-        grid-template-columns: 1fr;
-        gap: 0.3rem 0;
-      }
+      .acad-entry, .skills-grid { grid-template-columns: 1fr; gap: 0.3rem 0; }
       .intro h1 { font-size: 1.6rem; }
+      nav { gap: 1rem; }
     }
   </style>
 </head>
@@ -274,112 +100,143 @@
 <div class="site">
 
   <header>
-    <a class="site-id" href="#">Maitraunak</a>
+    <a class="site-id" href="#">Raunak Maitra</a>
     <nav>
       <a class="active" onclick="show('acad', this)">Academics</a>
       <a onclick="show('blog', this)">Writing</a>
-      <a href="mailto:your@email.com">Contact</a>
+      <a href="mailto:maitra.raunak1810@gmail.com">Contact</a>
     </nav>
   </header>
 
   <div class="intro">
     <p class="intro-label">About</p>
     <div class="intro-photo">
-      <!-- Replace the SVG below with: <img src="your-photo.jpg" alt="Maitraunak" style="width:100%;height:100%;object-fit:cover;" /> -->
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
         <circle cx="12" cy="7" r="4"/>
       </svg>
     </div>
-    <h1>Student of economics.<br>Writer of quiet things.</h1>
-    <p>I study business and economics, think about markets and people, and occasionally write about what I notice. This is where I keep both.</p>
+    <h1>Student of economics.<br>Still learning, always curious.</h1>
+    <p>I studied Economics (Honours) at Presidency University, Kolkata, and am currently pursuing my MA in Applied Economics at the Centre for Development Studies, JNU, Trivandrum.</p>
+    <p>I started out as a PCMB student, but a growing curiosity about how societies function gradually drew me towards economics. Since then, I have been fascinated by understanding how policy, technology, and institutions influence economic and social outcomes. My current interests include exploring the impact of digitalisation on firm performance and the role of education in intimate partner violence. I am also interested in mental health and well-being, behavioural norms, crime against sexually marginalised communities, and geospatial econometrics. Currently seeking suitable positions to strengthen my research foundation before starting my PhD.</p>
+    <div class="intro-links">
+      <a href="mailto:maitra.raunak1810@gmail.com">maitra.raunak1810@gmail.com</a>
+      <a href="tel:+917407155125">+91 74071 55125</a>
+      <span style="font-size:12px;color:var(--ink-faint);">Trivandrum, Kerala</span>
+    </div>
   </div>
 
-  <!-- ACADEMICS PANEL -->
   <div id="panel-acad" class="panel active">
 
-    <div class="section-rule"><span>Education & research</span></div>
+    <div class="section-rule"><span>Education</span></div>
 
     <div class="acad-entry">
-      <div class="acad-year">2022 – present</div>
+      <div class="acad-year">2024 – 2026</div>
       <div>
-        <p class="acad-title">B.Com / MBA, Economics & Business</p>
-        <p class="acad-sub">Your University · Focused on macroeconomics, financial markets, and behavioral economics.</p>
+        <p class="acad-title">MA in Applied Economics</p>
+        <p class="acad-sub">Centre for Development Studies, Jawaharlal Nehru University · Trivandrum, Kerala</p>
+        <p class="acad-sub" style="margin-top:0.3rem;">Grade: 66.60% · 3rd Rank, 2nd Semester · Ongoing</p>
+        <span class="acad-tag">Postgraduate</span>
+      </div>
+    </div>
+
+    <div class="acad-entry">
+      <div class="acad-year">2020 – 2023</div>
+      <div>
+        <p class="acad-title">BSc (Honours) in Economics</p>
+        <p class="acad-sub">Presidency University · Kolkata, West Bengal</p>
+        <p class="acad-sub" style="margin-top:0.3rem;">Grade: 70.40%</p>
         <span class="acad-tag">Undergraduate</span>
       </div>
     </div>
 
+    <div class="section-rule"><span>Research & experience</span></div>
+
     <div class="acad-entry">
-      <div class="acad-year">Ongoing</div>
+      <div class="acad-year">May – Jul 2025</div>
       <div>
-        <p class="acad-title">Research interests</p>
-        <p class="acad-sub">Market inefficiencies, behavioral decision-making, and the role of data in public policy.</p>
-        <span class="acad-tag">Research</span>
+        <p class="acad-title">Summer Research Fellow</p>
+        <p class="acad-sub">IIT Madras, Dept. of Humanities and Social Sciences · Chennai</p>
+        <span class="acad-tag">Internship</span>
       </div>
     </div>
 
     <div class="acad-entry">
-      <div class="acad-year">2024</div>
+      <div class="acad-year">2025 – Present</div>
       <div>
-        <p class="acad-title">Roles & experience</p>
-        <p class="acad-sub">Add internships, academic roles, or committee positions here.</p>
-        <span class="acad-tag">Experience</span>
+        <p class="acad-title">Research Assistant — Macro-Financial Impact of Dissent in Central Bank Communication</p>
+        <p class="acad-sub">With Rounak Shil et al. · Built FAVAR databases, implemented NLP pipeline combining Dynamic Topic Modeling and FinBERT classification to extract dissent signals from RBI MPC meeting minutes. Developed composite Economic Situation Index using PCA and Factor Analysis.</p>
+        <span class="acad-tag">Research Assistant</span>
       </div>
     </div>
 
-    <div class="section-rule"><span>Publications</span></div>
+    <div class="acad-entry">
+      <div class="acad-year">2025</div>
+      <div>
+        <p class="acad-title">Project Evaluation Researcher — Coastal Education Enhancement Mission</p>
+        <p class="acad-sub">iLAB NGO · Calicut, Kerala · Led evaluation of community-based educational intervention for children from coastal fishing communities. Designed qualitative research methodology with 20+ stakeholder interviews. Mapped program Theory of Change and delivered policy recommendations.</p>
+        <span class="acad-tag">NGO Research</span>
+      </div>
+    </div>
+
+    <div class="section-rule"><span>Publications & working papers</span></div>
 
     <div class="pub-entry">
-      <p class="pub-title">Your first paper or article title goes here</p>
-      <p class="pub-meta">Maitraunak &nbsp;·&nbsp; Journal or Conference Name &nbsp;·&nbsp; 2024</p>
-      <span class="pub-status">Published</span>
+      <p class="pub-title"><a href="https://www.thehindu.com/sci-tech/health/what-does-nfhs-6-reveal-about-the-use-of-period-products-in-india/article71079459.ece" target="_blank">What does NFHS-6 reveal about the use of period products in India?</a></p>
+      <p class="pub-meta">Raunak Maitra & Prof. Karan Babbar (XLRI Jamshedpur) · The Hindu · 2026</p>
+      <p class="pub-desc">Analyses findings from NFHS-6 on menstrual hygiene and period product usage patterns across India.</p>
+      <span class="pub-status">Published — The Hindu</span>
     </div>
 
     <div class="pub-entry">
-      <p class="pub-title">Working paper or ongoing research title goes here</p>
-      <p class="pub-meta">Maitraunak &nbsp;·&nbsp; In progress &nbsp;·&nbsp; 2025</p>
-      <span class="pub-status">Working paper</span>
+      <p class="pub-title">Intimate Partner Sexual Violence in India: The Role of Education</p>
+      <p class="pub-meta">Raunak Maitra & Prof. Karan Babbar (XLRI Jamshedpur) · 2025 – Present</p>
+      <p class="pub-desc">Examines how women's education levels relate to four types of intimate partner violence using NFHS-5 data. Uses nested logistic regression, bootstrap methods, and Fairlie decomposition across India's 36 state clusters.</p>
+      <span class="pub-status">Working Paper</span>
+    </div>
+
+    <div class="pub-entry">
+      <p class="pub-title">Digitalisation Effects on Firms' Outcomes</p>
+      <p class="pub-meta">Raunak Maitra & Prof. Sandeep Kumar Kujur (IIT Madras) · 2025 – Present</p>
+      <p class="pub-desc">Uses pooled firm-level data from World Bank Enterprise Surveys across 36 countries. Applies 2SLS and IV probit to address endogeneity, finding that digitalisation raises labour productivity but has no significant effect on total employment.</p>
+      <span class="pub-status">Working Paper</span>
+    </div>
+
+    <div class="section-rule"><span>Skills & qualifications</span></div>
+
+    <div class="skills-grid">
+      <div class="skills-label">Software</div>
+      <div class="skills-val">Stata, Python, R, Excel</div>
+    </div>
+    <div class="skills-grid">
+      <div class="skills-label">Methods</div>
+      <div class="skills-val">Causal inference, text analysis, NLP, regression, IV, PCA, factor analysis, decomposition methods</div>
+    </div>
+    <div class="skills-grid">
+      <div class="skills-label">Languages</div>
+      <div class="skills-val">Bengali (native), Hindi (fluent), English (fluent)</div>
+    </div>
+    <div class="skills-grid">
+      <div class="skills-label">Examinations</div>
+      <div class="skills-val">GATE Economics 2024 & 2026 (XH-C1) — Qualified both</div>
+    </div>
+    <div class="skills-grid">
+      <div class="skills-label">Service</div>
+      <div class="skills-val">Student Coordinator, MA Placement Cell, CDS · CDS Podcast Committee</div>
     </div>
 
   </div>
 
-  <!-- WRITING PANEL -->
   <div id="panel-blog" class="panel">
-
     <div class="section-rule"><span>Writing</span></div>
-
-    <a class="blog-entry">
-      <div class="blog-date">12 Jun 2026</div>
-      <div>
-        <p class="blog-title">What I learned from failing an exam</p>
-        <p class="blog-excerpt">Sometimes a stumble is the best lesson you didn't ask for.</p>
-        <span class="blog-tag-pill">Life</span>
-      </div>
-    </a>
-
-    <a class="blog-entry">
-      <div class="blog-date">28 May 2026</div>
-      <div>
-        <p class="blog-title">Is economics just storytelling with numbers?</p>
-        <p class="blog-excerpt">A late-night thought about models, meaning, and what we actually know.</p>
-        <span class="blog-tag-pill">Thought</span>
-      </div>
-    </a>
-
-    <a class="blog-entry">
-      <div class="blog-date">04 May 2026</div>
-      <div>
-        <p class="blog-title">A weekend in a city I didn't expect to love</p>
-        <p class="blog-excerpt">Spontaneous trips have a way of staying with you.</p>
-        <span class="blog-tag-pill">Travel</span>
-      </div>
-    </a>
-
+    <div class="empty-state">
+      <p>Essays and field notes coming soon.</p>
+    </div>
   </div>
 
   <footer>
-    <span>Maitraunak</span>
-    <span>Baharampur, West Bengal</span>
+    <span>Raunak Maitra</span>
+    <span>Trivandrum, Kerala · 2026</span>
   </footer>
 
 </div>
